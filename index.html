@@ -77,6 +77,28 @@ footer a { color:#e6ecf5; text-decoration:none; }
     font-size: 30px;
   }
 }
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-column {
+        width: 100%;
+    }
+}
 </style>
 </head>
 
