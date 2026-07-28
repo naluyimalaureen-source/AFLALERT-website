@@ -4,12 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AflAlert System</title>
+<title>AflAlert App</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; font-family:'Poppins',sans-serif; }
+
 body {
   background:#f8f6f0;
   color:#333;
@@ -29,22 +31,12 @@ header { position:fixed; top:0; width:100%; background:#1B5E3C; z-index:1000; bo
 .nav-links a { color:white; text-decoration:none; font-size:14px; white-space:nowrap; transition:.3s; }
 .nav-links a:hover { color:#D4AF37; }
 
-.hero { height:650px; margin-top:75px; background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url("img/background-image.jpg"); background-size:cover; background-position:center; display:flex; justify-content:center; align-items:center; text-align:center; }
+.hero { width:100%; max-width:none; margin:75px auto 0; height:650px; padding:0; background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url("img/background-image.jpg"); background-size:cover; background-position:center; display:flex; justify-content:center; align-items:center; text-align:center; }
 .hero-content { color:white; width:90%; max-width:900px; }
 .hero-content h1 { font-size:55px; margin-bottom:20px; }
 .hero-content p { font-size:21px; line-height:1.8; margin-bottom:35px; }
 .hero-btn { display:inline-block; background:#D4AF37; color:white; padding:15px 35px; border-radius:30px; text-decoration:none; font-weight:600; transition:.3s; margin:0 6px; }
 .hero-btn:hover { background:#b89120; transform:translateY(-3px); }
-
-@media (max-width: 600px) {
-  .hero { height:auto; min-height:500px; padding:40px 15px; }
-  .hero-content h1 { font-size:30px; line-height:1.3; }
-  .hero-content p { font-size:16px; line-height:1.6; }
-  .hero-btn { padding:12px 24px; font-size:14px; }
-  .section-title { font-size:26px; }
-  .navbar { padding:10px 0; }
-  .logo { font-size:18px; }
-}
 
 section { width:100%; max-width:1200px; margin:auto; padding:80px 20px; }
 .section-title { text-align:center; color:#1B5E3C; font-size:38px; margin-bottom:15px; }
@@ -52,8 +44,10 @@ section { width:100%; max-width:1200px; margin:auto; padding:80px 20px; }
 .teaser-text { text-align:center; font-size:19px; line-height:1.8; max-width:800px; margin:0 auto 30px; }
 
 .feature-container { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
-.feature-card { background:white; width:100px; padding:35px; text-align:center; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.08); transition:.3s; }
+.feature-card { background:white; width:300px; padding:35px; text-align:center; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.08); opacity:0; transform:translateY(40px); transition:opacity .6s ease, transform .6s ease; }
 .feature-card:hover { transform:translateY(-10px); }
+.feature-card.in-view { opacity:1; transform:translateY(0); }
+.feature-card.in-view:hover { transform:translateY(-10px); }
 .feature-card i { font-size:36px; color:#1B5E3C; margin-bottom:15px; }
 .feature-card h3 { color:#1B5E3C; margin-bottom:10px; }
 
@@ -62,42 +56,38 @@ section { width:100%; max-width:1200px; margin:auto; padding:80px 20px; }
 footer { background:#1B5E3C; color:white; text-align:center; padding:35px; }
 footer h3 { color:#D4AF37; margin-bottom:10px; }
 footer a { color:#e6ecf5; text-decoration:none; }
-@media (max-width: 768px) {
-  .feature-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .feature-card {
-    width: 100%;
-    max-width: 360px;
-  }
-
-  .section-title {
-    font-size: 30px;
-  }
-}
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.footer-column {
-    flex: 1;
-    min-width: 220px;
-}
 
 @media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
+  .feature-container { flex-direction: column; align-items: center; }
+  .feature-card { width: 100%; max-width: 360px; }
+  .section-title { font-size: 30px; }
+  header { position: static; }
+  .hero { margin-top: 0; }
+}
 
-    .footer-column {
-        width: 100%;
-    }
+@media (max-width: 600px) {
+  .hero { height:auto; min-height:500px; padding:40px 15px; }
+  .hero-content h1 { font-size:30px; line-height:1.3; }
+  .hero-content p { font-size:16px; line-height:1.6; }
+  .hero-btn {
+    display:block;
+    width:80%;
+    max-width:280px;
+    margin:12px auto 0;
+    padding:14px 20px;
+    font-size:15px;
+  }
+  .section-title { font-size:26px; }
+  .navbar { padding:10px 0; justify-content:center; text-align:center; }
+  .logo { font-size:18px; }
+}
+
+.footer-container { display: flex; justify-content: space-around; flex-wrap: wrap; text-align: left; max-width: 1000px; margin: 0 auto 25px; gap: 30px; }
+.footer-column { flex: 1; min-width: 220px; }
+
+@media (max-width: 768px) {
+  .footer-container { flex-direction: column; text-align: center; }
+  .footer-column { width: 100%; }
 }
 </style>
 </head>
@@ -106,7 +96,7 @@ footer a { color:#e6ecf5; text-decoration:none; }
 
 <header>
   <div class="navbar">
-    <div class="logo"><span>AflAlert</span> System</div>
+    <div class="logo"><span>AflAlert</span> App</div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -120,7 +110,7 @@ footer a { color:#e6ecf5; text-decoration:none; }
 
 <section class="hero" id="home">
   <div class="hero-content">
-    <p style="font-size:20px; color:#D4AF37; font-weight:600; margin-bottom:10px;">Welcome to AflAlert</p>
+    <p style="font-size:28px; color:#D4AF37; font-weight:600; margin-bottom:10px;">Welcome to AflAlert</p>
     <h1>AflAlert detects aflatoxin in maize instantly</h1>
     <p>An AI-powered mobile solution helping farmers and traders identify aflatoxin risks in maize using smartphone technology.</p>
     <a href="features.html" class="hero-btn">Explore Features</a>
@@ -159,11 +149,14 @@ footer a { color:#e6ecf5; text-decoration:none; }
 </section>
 
 <footer>
-  <div style="display:flex; flex-wrap:wrap; justify-content:space-around; text-align:left; max-width:1000px; margin:0 auto 25px; gap:30px;">
+  <div class="footer-container">
 
-    
+    <div class="footer-column">
+      <h3>AflAlert</h3>
+      <p style="color:#e6ecf5;">AI-powered aflatoxin detection for safer maize.</p>
+    </div>
 
-    <div>
+    <div class="footer-column">
       <h3 style="font-size:1.1rem;">Quick Links</h3>
       <p><a href="about.html">About</a></p>
       <p><a href="features.html">Features</a></p>
@@ -171,14 +164,14 @@ footer a { color:#e6ecf5; text-decoration:none; }
       <p><a href="team.html">Team</a></p>
     </div>
 
-    <div>
+    <div class="footer-column">
       <h3 style="font-size:1.1rem;">Contact</h3>
       <p style="color:#e6ecf5;">Kampala, Uganda</p>
-      <p><a href="mailto:aflalertsystem@gmail.com">aflalertsystem@gmail.com</a></p>
+      <p><a href="mailto:aflalert.support@gmail.com">aflalert.support@gmail.com</a></p>
       <p><a href="https://github.com/naluyimalaureen-source/AFLALERT-website" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
     </div>
 
-    <div>
+    <div class="footer-column">
       <h3 style="font-size:1.1rem;">Follow Us</h3>
       <p>
         <a href="#" style="margin-right:10px;"><i class="fab fa-facebook"></i></a>
@@ -191,8 +184,9 @@ footer a { color:#e6ecf5; text-decoration:none; }
 
   <hr style="border-color: rgba(255,255,255,0.2); margin: 20px auto; max-width:1000px;">
 
-  <p>© 2026 AflAlert System | AI-powered aflatoxin detection for safer maize.</p>
+  <p>© 2026 AflAlert App | AI-powered aflatoxin detection for safer maize.</p>
 </footer>
 
+<script src="js/scroll-reveal.js"></script>
 </body>
 </html>

@@ -4,11 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — AflAlert System</title>
+<title>Contact — AflAlert App</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+* { font-family:'Poppins',sans-serif; }
+
 body {
   background:#f8f6f0;
   color:#333;
@@ -31,9 +34,14 @@ header { position:fixed; top:0; width:100%; background:#1B5E3C; z-index:1000; bo
 .hero-btn { display:inline-block; background:#D4AF37; color:white; padding:15px 35px; border-radius:30px; text-decoration:none; font-weight:600; transition:.3s; }
 .hero-btn:hover { background:#b89120; transform:translateY(-3px); }
 
+@media (max-width: 768px) {
+  header { position: static; }
+  section:first-of-type { padding-top: 40px; }
+}
+
 @media (max-width: 600px) {
   .section-title { font-size:26px; }
-  .navbar { padding:10px 0; }
+  .navbar { padding:10px 0; justify-content:center; text-align:center; }
   .logo { font-size:18px; }
 }
 
@@ -52,7 +60,7 @@ footer a { color:#e6ecf5; text-decoration:none; }
 
 <header>
   <div class="navbar">
-    <div class="logo"><span>AflAlert</span> System</div>
+    <div class="logo"><span>AflAlert</span> App</div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -71,7 +79,7 @@ footer a { color:#e6ecf5; text-decoration:none; }
     Interested in AflAlert or want to support safer maize production? Contact us and learn more about the project.
   </p>
   <div style="text-align:center; margin-top:30px;">
-    <a class="hero-btn" href="mailto:aflalertsystem@gmail.com">Email Us</a>
+    <a class="hero-btn" href="mailto:aflalert.support@gmail.com">Email Us</a>
   </div>
 </section>
 
@@ -88,9 +96,9 @@ footer a { color:#e6ecf5; text-decoration:none; }
 </section>
 
 <footer>
-  <h3>AflAlert System</h3>
+  <h3>AflAlert App</h3>
   <p><a href="https://github.com/naluyimalaureen-source/AFLALERT-website" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
-  <p>© 2026 AflAlert System | AI-powered aflatoxin detection for safer maize.</p>
+  <p>© 2026 AflAlert App | AI-powered aflatoxin detection for safer maize.</p>
 </footer>
 
 </body>

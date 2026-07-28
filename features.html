@@ -4,13 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Features — AflAlert System</title>
+<title>Features — AflAlert App</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
+* { font-family:'Poppins',sans-serif; }
 
 body {
   background:#f8f6f0;
@@ -43,7 +43,8 @@ section:first-of-type { padding-top:140px; }
 .line { width:90px; height:4px; background:#D4AF37; margin:0 auto 40px; }
 
 .feature-container { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
-.feature-card { background:white; width:300px; padding:35px; text-align:center; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.08); transition:.3s; }
+.feature-card { background:white; width:300px; padding:35px; text-align:center; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.08); opacity:0; transform:translateY(40px); transition:opacity .6s ease, transform .6s ease; }
+.feature-card.in-view { opacity:1; transform:translateY(0); }
 .feature-card:hover { transform:translateY(-10px); }
 .feature-card i { font-size:40px; color:#1B5E3C; margin-bottom:20px; }
 .feature-card h3 { color:#1B5E3C; margin-bottom:15px; }
@@ -58,7 +59,7 @@ footer a { color:#e6ecf5; text-decoration:none; }
 
 <header>
   <div class="navbar">
-    <div class="logo"><span>AflAlert</span> System</div>
+    <div class="logo"><span>AflAlert</span> App</div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -116,10 +117,11 @@ footer a { color:#e6ecf5; text-decoration:none; }
 </section>
 
 <footer>
-  <h3>AflAlert System</h3>
+  <h3>AflAlert App</h3>
   <p><a href="https://github.com/naluyimalaureen-source/AFLALERT-website" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
-  <p>© 2026 AflAlert System | AI-powered aflatoxin detection for safer maize.</p>
+  <p>© 2026 AflAlert App | AI-powered aflatoxin detection for safer maize.</p>
 </footer>
 
+<script src="js/scroll-reveal.js"></script>
 </body>
 </html>
