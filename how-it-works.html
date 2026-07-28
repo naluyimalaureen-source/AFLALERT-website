@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — AflAlert System</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  background:#f8f6f0;
+  color:#333;
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+header { position:fixed; top:0; width:100%; background:#1B5E3C; z-index:1000; box-shadow:0 3px 10px rgba(0,0,0,.2); }
+.navbar { width:90%; max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:14px 0; flex-wrap:wrap; gap:10px; }
+.logo { font-size:22px; font-weight:700; color:white; white-space:nowrap; }
+.logo span { color:#D4AF37; }
+.nav-links { display:flex; gap:16px; flex-wrap:wrap; }
+.nav-links a { color:white; text-decoration:none; font-size:14px; white-space:nowrap; transition:.3s; }
+.nav-links a:hover { color:#D4AF37; }
+
+@media (max-width: 600px) {
+  .section-title { font-size:26px; }
+  .navbar { padding:10px 0; }
+  .logo { font-size:18px; }
+}
+
+section { width:90%; max-width:1200px; margin:auto; padding:80px 0; }
+section:first-of-type { padding-top:140px; }
+.section-title { text-align:center; color:#1B5E3C; font-size:38px; margin-bottom:15px; }
+.line { width:90px; height:4px; background:#D4AF37; margin:0 auto 40px; }
+
+.steps { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
+.step { background:white; width:280px; padding:30px; text-align:center; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.08); }
+.step h3 { width:60px; height:60px; line-height:60px; margin:0 auto 20px; border-radius:50%; background:#1B5E3C; color:white; font-size:25px; }
+
+.feature-container { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
+.feature-card { background:white; width:280px; padding:30px; text-align:center; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.08); transition:.3s; }
+.feature-card:hover { transform:translateY(-10px); }
+.feature-card i { font-size:36px; color:#1B5E3C; margin-bottom:15px; }
+.feature-card h3 { color:#1B5E3C; margin-bottom:10px; }
+
+footer { background:#1B5E3C; color:white; text-align:center; padding:35px; }
+footer h3 { color:#D4AF37; margin-bottom:10px; }
+footer a { color:#e6ecf5; text-decoration:none; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo"><span>AflAlert</span> System</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section id="how">
+  <h2 class="section-title">How It Works</h2>
+  <div class="line"></div>
+  <div class="steps">
+    <div class="step">
+      <h3>1</h3>
+      <h4>Capture Image</h4>
+      <p>Open AflAlert and capture a clear image of maize.</p>
+    </div>
+    <div class="step">
+      <h3>2</h3>
+      <h4>AI Analysis</h4>
+      <p>The trained AI model analyses the maize sample.</p>
+    </div>
+    <div class="step">
+      <h3>3</h3>
+      <h4>Get Results</h4>
+      <p>Receive aflatoxin risk results and recommendations.</p>
+    </div>
+  </div>
+</section>
+
+<section id="architecture">
+  <h2 class="section-title">Technical Architecture</h2>
+  <div class="line"></div>
+  <div class="feature-container">
+    <div class="feature-card">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>Frontend</h3>
+      <p>Built with Flutter & Dart for a smooth, native-feeling cross-platform mobile experience.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-fire"></i>
+      <h3>Backend</h3>
+      <p>Firebase powers authentication, cloud data storage (Firestore), and image storage.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-brain"></i>
+      <h3>AI Model</h3>
+      <p>On-device TensorFlow Lite (MobileNetV2) enables fast, offline aflatoxin risk detection.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-layer-group"></i>
+      <h3>State Management</h3>
+      <p>GetX manages app state, navigation, and reactive UI updates efficiently.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h3>AflAlert System</h3>
+  <p><a href="https://github.com/naluyimalaureen-source/AFLALERT-website" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
+  <p>© 2026 AflAlert System | AI-powered aflatoxin detection for safer maize.</p>
+</footer>
+
+</body>
+</html>
