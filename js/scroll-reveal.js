@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var boxes = document.querySelectorAll('.feature-card, .team-card, .mission-box, .mentor-box');
+  var boxes = document.querySelectorAll('.feature-card, .team-card, .mission-box, .mentor-box, .phone-frame');
 
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {

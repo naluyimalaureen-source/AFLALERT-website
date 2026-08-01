@@ -54,6 +54,18 @@ section:first-of-type { padding-top:140px; }
 .feature-card i { font-size:36px; color:#1B5E3C; margin-bottom:15px; }
 .feature-card h3 { color:#1B5E3C; margin-bottom:10px; }
 
+.diagram-box { background:white; border-radius:15px; padding:20px; box-shadow:0 8px 20px rgba(0,0,0,.08); overflow-x:auto; margin-bottom:50px; }
+.diagram-box img { display:block; margin:0 auto; width:1100px; max-width:none; }
+.diagram-caption { text-align:center; color:#666; font-size:15px; margin:-30px auto 50px; max-width:800px; }
+
+.screenshots-container { display:flex; justify-content:center; align-items:flex-start; gap:50px; flex-wrap:wrap; }
+.phone-frame { width:250px; border-radius:36px; border:8px solid #1B5E3C; box-shadow:0 15px 35px rgba(0,0,0,.2); overflow:hidden; background:#000; opacity:0; transform:translateY(40px); transition:opacity .6s ease, transform .6s ease; }
+.phone-frame.in-view { opacity:1; transform:translateY(0); }
+.phone-frame:hover { transform:translateY(-10px); }
+.phone-frame.in-view:hover { transform:translateY(-10px); }
+.phone-frame img { width:100%; display:block; }
+.screenshot-caption { text-align:center; margin-top:16px; color:#1B5E3C; font-weight:600; }
+
 footer { background:#1B5E3C; color:white; text-align:center; padding:35px; }
 footer h3 { color:#D4AF37; margin-bottom:10px; }
 footer a { color:#e6ecf5; text-decoration:none; }
@@ -62,19 +74,8 @@ footer a { color:#e6ecf5; text-decoration:none; }
 
 <body>
 
-<header>
-  <div class="navbar">
-    <div class="logo"><img src="img/aflalert_logo.png" alt="AflAlert logo"><span>AflAlert</span> App</div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="features.html">Features</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="team.html">Team</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-</header>
+<div class="menu-container"></div>
+<script src="js/menu.js"></script>
 
 <section id="how">
   <h2 class="section-title">How It Works</h2>
@@ -98,9 +99,32 @@ footer a { color:#e6ecf5; text-decoration:none; }
   </div>
 </section>
 
+<section id="screenshots">
+  <h2 class="section-title">A Look Inside the App</h2>
+  <div class="line"></div>
+  <div class="screenshots-container">
+    <div>
+      <div class="phone-frame"><img src="img/aflalert-homepage.png" alt="AflAlert app home screen showing scan options and daily tips"></div>
+      <p class="screenshot-caption">Home Dashboard</p>
+    </div>
+    <div>
+      <div class="phone-frame"><img src="img/aflalert-resultscreen.png" alt="AflAlert app result screen showing a healthy aflatoxin scan result"></div>
+      <p class="screenshot-caption">Healthy Result</p>
+    </div>
+    <div>
+      <div class="phone-frame"><img src="img/aflalert-mold-detected.jpeg" alt="AflAlert app result screen flagging aflatoxin contamination in a maize sample"></div>
+      <p class="screenshot-caption">Risk Detected</p>
+    </div>
+  </div>
+</section>
+
 <section id="architecture">
   <h2 class="section-title">Technical Architecture</h2>
   <div class="line"></div>
+  <div class="diagram-box">
+    <img src="img/architecture-diagram.png" alt="AflAlert system architecture diagram showing the Presentation layer (Flutter UI screens), Services layer (business logic), and Platform layer (TensorFlow Lite, Firebase, Android WorkManager, Weather API, device camera)">
+  </div>
+  <p class="diagram-caption">Screens call into services; services own all business logic and talk to Firebase, the bundled TFLite model, the device camera, and platform schedulers — keeping kernel and strip detection independently testable.</p>
   <div class="feature-container">
     <div class="feature-card">
       <i class="fas fa-mobile-alt"></i>
@@ -115,21 +139,18 @@ footer a { color:#e6ecf5; text-decoration:none; }
     <div class="feature-card">
       <i class="fas fa-brain"></i>
       <h3>AI Model</h3>
-      <p>On-device TensorFlow Lite (MobileNetV2) enables fast, offline aflatoxin risk detection.</p>
+      <p>On-device TensorFlow Lite enables fast, offline aflatoxin risk detection.</p>
     </div>
     <div class="feature-card">
       <i class="fas fa-layer-group"></i>
       <h3>State Management</h3>
-      <p>GetX manages app state, navigation, and reactive UI updates efficiently.</p>
+      <p>Provider manages app state and reactive UI updates efficiently.</p>
     </div>
   </div>
 </section>
 
-<footer>
-  <h3>AflAlert App</h3>
-  <p><a href="https://github.com/naluyimalaureen-source/AFLALERT-website" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
-  <p>© 2026 AflAlert App | AI-powered aflatoxin detection for safer maize.</p>
-</footer>
+<div class="footer-container"></div>
+<script src="js/footer.js"></script>
 
 <script src="js/scroll-reveal.js"></script>
 </body>
